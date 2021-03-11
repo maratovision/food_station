@@ -1,0 +1,44 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">Food Station <em> Website</em></a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="/" class="active">Home</a></li>
+                        <li><a href="{% url 'products' %}">Products</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item"  href="{% url 'about_page' %}">About Us</a>
+                                    <a class="dropdown-item" href="{% url 'blog' %}">Blog</a>
+                                    <a class="dropdown-item" href="{% url 'team_page' %}">Our team</a>
+                                    <a class="dropdown-item" href="{% url 'testimonials' %}">Testimonials</a>
+                                </div>
+                            </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hello! {{ request.user }}</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item"  href="{% url 'logout_page' %}">Logout</a>
+                                </div>
+                            </li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Sign up</a></li>
+                        {% endif %}
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

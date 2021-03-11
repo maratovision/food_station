@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends 'cafe/main.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">№</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for food in food %}
+        <tr>
+          <th scope="row">{{ food.id }}</th>
+          <td>{{ food.name }}</td>
+          <td>{{ food.description }}</td>
+          <td>{{ food.category }}</td>
+          <td>{{ food.price }}</td>
+        </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

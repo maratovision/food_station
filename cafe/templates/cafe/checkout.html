@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% extends 'cafe/main.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <section class="section section-bg" id="call-to-action" style="background-image: url({% static 'images/banner-image-1-1920x500.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cta-content">
+                        <br>
+                        <br>
+                        <h2>Easy <em>Checkout</em></h2>
+                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="POST">
+                            {% csrf_token %}
+                           <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Food:</label>
+                                     {{ form.food }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Quantity:</label>
+                                     {{ form.quantity }}
+                                </div>
+                           </div>
+                           <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Name:</label>
+                                     {{ form.name }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Phone:</label>
+                                     {{ form.phone }}
+                                </div>
+                           </div>
+                           <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Email:</label>
+                                     {{ form.email }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>City:</label>
+                                     {{ form.city }}
+                                </div>
+                           </div>
+                           <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Address:</label>
+                                     {{ form.address }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>House:</label>
+                                     {{ form.house }}
+                                </div>
+                           </div>
+                           <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>User:</label>
+                                     {{ form.user }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Payment method:</label>
+                                     {{ form.pay_method }}
+                                </div>
+                           </div>
+                            <input type="submit" name="submit">
+                        </form>
+                    </div>
+
+                    <br>
+                </div>
+
+                <div class="col-md-4">
+                    <ul class="list-group list-group-no-border">
+                      <li class="list-group-item" style="margin:0 0 -1px">
+                         <div class="row">
+                            <div class="col-6">
+                                <strong>Price of food</strong>
+                            </div>
+
+                            <div class="col-6">
+                                <h5 class="text-right">$ {{ food.price }}</h5>
+                            </div>
+                         </div>
+                      </li>
+
+                      <li class="list-group-item" style="margin:0 0 -1px">
+                         <div class="row">
+                            <div class="col-6">
+                                <strong>Discount</strong>
+                            </div>
+
+                            <div class="col-6">
+                                <h5 class="text-right">$ 0.00</h5>
+                            </div>
+                         </div>
+                      </li>
+
+                      <li class="list-group-item" style="margin:0 0 -1px">
+                         <div class="row">
+                            <div class="col-6">
+                                <strong>Tax</strong>
+                            </div>
+
+                            <div class="col-6">
+                                <h5 class="text-right">$ 10.00</h5>
+                            </div>
+                         </div>
+                      </li>
+
+                      <li class="list-group-item" style="margin:0 0 -1px">
+                         <div class="row">
+                            <div class="col-6">
+                                <h4><strong>Total</strong></h4>
+                            </div>
+
+                            <div class="col-6">
+                                <h4 class="text-right">$ {{ total_price }}</h4>
+                            </div>
+                         </div>
+                      </li>
+
+                      <li class="list-group-item" style="margin:0 0 -1px">
+                         <div class="row">
+                            <div class="col-6">
+                                <strong>Deposit</strong>
+                            </div>
+
+                            <div class="col-6">
+                                <h5 class="text-right">$ 10.00</h5>
+                            </div>
+                         </div>
+                      </li>
+                    </ul>
+
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </body>
+</html>
+{% endblock %}
